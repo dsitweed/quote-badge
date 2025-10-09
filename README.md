@@ -37,7 +37,7 @@ Or use HTML for more control:
 Use the slug route to get quotes from specific categories:
 
 ```markdown
-![Inspirational Quote](https://your-domain.vercel.app/inspirational)
+![Inspirational Quote](https://your-domain.vercel.app?tags=inspirational)
 ```
 
 Available categories include: `wisdom`, `inspirational`, `life`, `success`, `motivational`, `happiness`, `technology`, and more.
@@ -59,31 +59,20 @@ I'm a developer passionate about...
 ```markdown
 ## Project Name
 
-> ![Quote](https://your-domain.vercel.app/technology)
+> ![Quote](https://your-domain.vercel.app?tags=technology)
 
 A revolutionary project that...
 ```
 
 ## API Endpoints
 
-### `GET /`
+### `GET /?tags=[tag]`
 
 Returns a random quote as an SVG image.
 
 **Response:**
 - Content-Type: `image/svg+xml`
 - Returns: SVG badge with quote, author, and tag
-
-### `GET /[slug]`
-
-Returns a random quote from a specific category.
-
-**Parameters:**
-- `slug` (string): Category or tag name (e.g., `wisdom`, `technology`)
-
-**Response:**
-- Content-Type: `image/svg+xml`
-- Returns: SVG badge with categorized quote
 
 ## Getting Started
 
@@ -123,24 +112,8 @@ The easiest way to deploy your own quote badge API:
 - **Output Format:** SVG (Scalable Vector Graphics)
 - **Cache:** 60 seconds with stale-while-revalidate
 
-## Customization
-
-You can customize the badge by editing `src/app/route.ts`:
-
-- **Colors:** Change background, text, and tag colors
-- **Font Size:** Adjust `fontSize` variable
-- **Dimensions:** Modify `width` and `height` calculations
-- **Line Wrapping:** Change `maxCharsPerLine` value
-
-## Credits
-
-- Quotes provided by [Quotable API](https://github.com/lukePeavey/quotable)
-- Built with [Next.js](https://nextjs.org)
-
 ## License
 
 MIT
 
 ---
-
-**Note:** Replace `https://your-domain.vercel.app/` with your actual deployment URL after deploying to Vercel or other hosting platforms.

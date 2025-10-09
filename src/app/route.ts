@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 type QuoteResponse = {
   _id: string;
@@ -11,28 +11,17 @@ type QuoteResponse = {
   dateModified: Date;
 };
 
-function wrapText(text: string, maxChars: number) {
-  const words = text.split(" ");
-  const lines: string[] = [];
-  let current = "";
-
-  for (const word of words) {
-    const test = current ? `${current} ${word}` : word;
-    if (test.length <= maxChars) {
-      current = test;
-    } else {
-      if (current) lines.push(current);
-      current = word;
-    }
+export async function GET(request: NextRequest) {
+  const url = new URL(request.url);
+  let tagsParam = url.searchParams.get("tags");
+  let apiUrl = "http://api.quotable.io/random";
+  if (tagsParam) {
+    // Support both comma and pipe separated tags
+    tagsParam = tagsParam.replace(/\|/g, ",");
+    apiUrl += `?tags=${encodeURIComponent(tagsParam)}`;
   }
-  if (current) lines.push(current);
-  return lines;
-}
 
-export async function GET() {
-  const data = (await fetch("http://api.quotable.io/random").then((r) =>
-    r.json()
-  )) as QuoteResponse;
+  const data = (await fetch(apiUrl).then((r) => r.json())) as QuoteResponse;
   const { content, author, tags } = data;
   const tag = tags && tags.length ? tags[0] : "general";
 
@@ -98,4 +87,22 @@ export async function GET() {
       "Cache-Control": "s-maxage=60, stale-while-revalidate=300",
     },
   });
+}
+
+function wrapText(text: string, maxChars: number) {
+  const words = text.split(" ");
+  const lines: string[] = [];
+  let current = "";
+
+  for (const word of words) {
+    const test = current ? `${current} ${word}` : word;
+    if (test.length <= maxChars) {
+      current = test;
+    } else {
+      if (current) lines.push(current);
+      current = word;
+    }
+  }
+  if (current) lines.push(current);
+  return lines;
 }
