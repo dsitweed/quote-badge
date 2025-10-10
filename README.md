@@ -2,7 +2,7 @@
 
 A beautiful, dynamic quote badge generator for your GitHub profile or project README. Displays random inspirational quotes with author attribution and tags, powered by the [Quotable API](http://api.quotable.io).
 
-![Quote Badge Example](https://your-domain.vercel.app/)
+![Quote Badge Example](https://quote-badge.vercel.app/)
 
 ## Features
 
@@ -21,14 +21,14 @@ A beautiful, dynamic quote badge generator for your GitHub profile or project RE
 Simply add this markdown to your `README.md`:
 
 ```markdown
-![Daily Quote](https://your-domain.vercel.app/)
+![Daily Quote](https://quote-badge.vercel.app/)
 ```
 
 Or use HTML for more control:
 
 ```html
 <div align="center">
-  <img src="https://your-domain.vercel.app/" alt="Random Quote" />
+  <img src="https://quote-badge.vercel.app/" alt="Random Quote" />
 </div>
 ```
 
@@ -37,7 +37,7 @@ Or use HTML for more control:
 Use the slug route to get quotes from specific categories:
 
 ```markdown
-![Inspirational Quote](https://your-domain.vercel.app?tags=inspirational)
+![Inspirational Quote](https://quote-badge.vercel.app?tags=inspirational)
 ```
 
 Available categories include: `wisdom`, `inspirational`, `life`, `success`, `motivational`, `happiness`, `technology`, and more.
@@ -49,7 +49,7 @@ Available categories include: `wisdom`, `inspirational`, `life`, `success`, `mot
 ```markdown
 # Hi there 👋
 
-![Quote of the Day](https://your-domain.vercel.app/)
+![Quote of the Day](https://quote-badge.vercel.app/)
 
 I'm a developer passionate about...
 ```
@@ -59,7 +59,7 @@ I'm a developer passionate about...
 ```markdown
 ## Project Name
 
-> ![Quote](https://your-domain.vercel.app?tags=technology)
+> ![Quote](https://quote-badge.vercel.app?tags=technology)
 
 A revolutionary project that...
 ```
