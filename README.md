@@ -4,15 +4,6 @@ A beautiful, dynamic quote badge generator for your GitHub profile or project RE
 
 ![Quote Badge Example](https://quote-badge.vercel.app/)
 
-## Features
-
-- 🎨 Clean, modern SVG design with dark theme
-- 📝 Automatic text wrapping for long quotes
-- 👤 Author attribution
-- 🏷️ Tag display
-- 🔄 Random quote on each page load
-- 📱 Responsive and lightweight
-- ⚡ Built with Next.js API Routes
 
 ## Usage
 
@@ -41,6 +32,18 @@ Use the slug route to get quotes from specific categories:
 ```
 
 Available categories include: `wisdom`, `inspirational`, `life`, `success`, `motivational`, `happiness`, `technology`, and more.
+
+
+## Features
+
+- 🎨 Clean, modern SVG design with dark theme
+- 📝 Automatic text wrapping for long quotes
+- 👤 Author attribution
+- 🏷️ Tag display
+- 🔄 Random quote on each page load
+- 📱 Responsive and lightweight
+- ⚡ Built with Next.js API Routes
+
 
 ## Examples
 
